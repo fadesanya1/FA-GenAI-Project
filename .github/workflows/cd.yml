@@ -84,7 +84,8 @@ jobs:
         # - GCP Cloud Run: use google-github-actions/deploy-cloudrun
         # - Self-hosted: SSH + docker pull + docker-compose up
         run: |
-          echo "Deploying ${{ needs.build-push.outputs.image_tag }} to staging..."
+          IMAGE_TAG="$(printf '%s\n' "${{ needs.build-push.outputs.image_tag }}" | head -n 1)"
+          echo "Deploying ${IMAGE_TAG} to staging..."
           echo "TODO: Configure your deployment target (AWS ECS / GCP Cloud Run / SSH)"
           # Example for SSH deploy (uncomment and configure secrets):
           # - uses: appleboy/ssh-action@v1
