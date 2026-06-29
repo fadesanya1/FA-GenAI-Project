@@ -94,7 +94,7 @@ jobs:
           #     username: ${{ secrets.STAGING_USER }}
           #     key: ${{ secrets.STAGING_SSH_KEY }}
           #     script: |
-          #       docker pull ${{ needs.build-push.outputs.image_tag }}
+          #       docker pull ${IMAGE_TAG}
           #       docker-compose up -d
 
   # ── Deploy to Production (tag-triggered or manual) ────────────────────────
